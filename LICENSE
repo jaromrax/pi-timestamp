@@ -1,7 +1,7 @@
 Copyright © 2026 kapper.net - KAPPER NETWORK-COMMUNICATIONS GmbH
 Licensed under the EUPL
 
-                      EUROPEAN UNION PUBLIC LICENCE v. 1.2
+EUROPEAN UNION PUBLIC LICENCE v. 1.2
                       EUPL © the European Union 2007, 2016
 
 This European Union Public Licence (the ‘EUPL’) applies to the Work (as defined
@@ -22,34 +22,25 @@ or has expressed by any other means his willingness to license under the EUPL.
 In this Licence, the following terms have the following meaning:
 
 - ‘The Licence’: this Licence.
-
 - ‘The Original Work’: the work or software distributed or communicated by the
   Licensor under this Licence, available as Source Code and also as Executable
   Code as the case may be.
-
 - ‘Derivative Works’: the works or software that could be created by the
   Licensee, based upon the Original Work or modifications thereof. This Licence
   does not define the extent of modification or dependence on the Original Work
   required in order to classify a work as a Derivative Work; this extent is
   determined by copyright law applicable in the country mentioned in Article 15.
-
 - ‘The Work’: the Original Work or its Derivative Works.
-
 - ‘The Source Code’: the human-readable form of the Work which is the most
   convenient for people to study and modify.
-
-- ‘The Executable Code’: any code which has generally been compiled and which is
-  meant to be interpreted by a computer as a program.
-
+- ‘The Executable Code’: any code which has generally been compiled and which
+  is meant to be interpreted by a computer as a program.
 - ‘The Licensor’: the natural or legal person that distributes or communicates
   the Work under the Licence.
-
-- ‘Contributor(s)’: any natural or legal person who modifies the Work under the
-  Licence, or otherwise contributes to the creation of a Derivative Work.
-
+- ‘Contributor(s)’: any natural or legal person who modifies the Work under
+  the Licence, or otherwise contributes to the creation of a Derivative Work.
 - ‘The Licensee’ or ‘You’: any natural or legal person who makes any usage of
-  the Work under the terms of the Licence.
-
+  the Work under the terms of this Licence.
 - ‘Distribution’ or ‘Communication’: any act of selling, giving, lending,
   renting, distributing, communicating, transmitting, or otherwise making
   available, online or offline, copies of the Work or providing access to its
@@ -69,15 +60,14 @@ in the Original Work:
   the Work or copies thereof to the public and perform publicly, as the case may
   be, the Work,
 - distribute the Work or copies thereof,
-- lend and rent the Work or copies thereof,
-- sublicense rights in the Work or copies thereof.
+- lend and rent the Work or copies thereof.
 
 Those rights can be exercised on any media, supports and formats, whether now
 known or later invented, as far as the applicable law permits so.
 
 In the countries where moral rights apply, the Licensor waives his right to
 exercise his moral right to the extent allowed by law in order to make effective
-the licence of the economic rights here above listed.
+the licence of the economic rights here above granted.
 
 The Licensor grants to the Licensee royalty-free, non-exclusive usage rights to
 any patents held by the Licensor, to the extent necessary to make use of the
@@ -131,8 +121,8 @@ Licence shall prevail.
 
 Provision of Source Code: When distributing or communicating copies of the Work,
 the Licensee will provide a machine-readable copy of the Source Code or indicate
-a repository where this Source will be easily and freely available for as long
-as the Licensee continues to distribute or communicate the Work.
+a repository where this Source will be easily and freely available for as long as
+the Licensee continues to distribute or communicate the Work.
 
 Legal Protection: This Licence does not grant permission to use the trade names,
 trademarks, service marks, or names of the Licensor, except as required for
@@ -186,8 +176,8 @@ defining obligations or services consistent with this Licence. However, if
 accepting obligations, You may act only on your own behalf and on your sole
 responsibility, not on behalf of the original Licensor or any other Contributor,
 and only if You agree to indemnify, defend, and hold each Contributor harmless
-for any liability incurred by, or claims asserted against such Contributor by
-the fact You have accepted any warranty or additional liability.
+for any liability incurred by, or claims asserted against such Contributor by the
+fact You have accepted any warranty or additional liability.
 
 10. Acceptance of the Licence
 
@@ -271,7 +261,7 @@ Appendix
 - GNU General Public License (GPL) v. 2, v. 3
 - GNU Affero General Public License (AGPL) v. 3
 - Open Software License (OSL) v. 2.1, v. 3.0
-- Eclipse Public License (EPL) v. 1.0
+- Eclipse Public License (EPL) v. 1.0, v. 2.0
 - CeCILL v. 2.0, v. 2.1
 - Mozilla Public Licence (MPL) v. 2
 - GNU Lesser General Public Licence (LGPL) v. 2.1, v. 3

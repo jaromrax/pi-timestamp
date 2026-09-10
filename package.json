@@ -1,16 +1,14 @@
 {
-  "name": "pi-extensions",
-  "version": "0.3.7",
-  "description": "Pi agent extensions: advisor, thinking command, timestamps, and per-project model preferences",
+  "name": "@hk_net/pi-timestamp",
+  "version": "0.1.13",
+  "description": "Pi extension that shows timestamps for user input and agent completion timing",
   "type": "module",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "private": false,
   "keywords": [
     "pi-package",
     "pi",
-    "extension"
+    "extension",
+    "timestamp"
   ],
   "license": "EUPL-1.2",
   "author": {
@@ -19,32 +17,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hknet/pi-extensions.git"
+    "url": "git+https://github.com/hknet/pi-extensions.git",
+    "directory": "packages/pi-timestamp"
   },
   "bugs": {
     "url": "https://github.com/hknet/pi-extensions/issues"
   },
-  "homepage": "https://github.com/hknet/pi-extensions",
-  "engines": {
-    "node": ">=22.19.0"
-  },
+  "homepage": "https://github.com/hknet/pi-extensions/tree/main/packages/pi-timestamp#readme",
   "files": [
-    "packages/pi-advisor",
-    "packages/pi-thinking-command",
-    "packages/pi-timestamp",
-    "packages/pi-set-model",
+    "timestamp.ts",
     "README.md",
     "CHANGELOG.md"
   ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "peerDependencies": {
-    "@earendil-works/pi-ai": "*",
     "@earendil-works/pi-coding-agent": "*",
     "@earendil-works/pi-tui": "*"
   },
   "peerDependenciesMeta": {
-    "@earendil-works/pi-ai": {
-      "optional": true
-    },
     "@earendil-works/pi-coding-agent": {
       "optional": true
     },
@@ -52,28 +44,9 @@
       "optional": true
     }
   },
-  "devDependencies": {
-    "@earendil-works/pi-ai": "0.84.4",
-    "@earendil-works/pi-coding-agent": "0.84.4",
-    "@earendil-works/pi-tui": "0.84.4",
-    "@types/node": "24.13.3",
-    "typescript": "5.9.3"
-  },
   "pi": {
     "extensions": [
-      "./packages/pi-advisor/advisor.ts",
-      "./packages/pi-thinking-command/thinking-shortcut.ts",
-      "./packages/pi-timestamp/timestamp.ts",
-      "./packages/pi-set-model/set-model.ts"
+      "./timestamp.ts"
     ]
-  },
-  "scripts": {
-    "typecheck": "tsc -p tsconfig.json",
-    "test": "rm -rf .tmp-test && tsc -p tsconfig.test.json && node --test .tmp-test/tests/**/*.test.js",
-    "release:stage": "npm stage publish --workspace @hk_net/pi-advisor --workspace @hk_net/pi-thinking-command --workspace @hk_net/pi-timestamp --workspace pi-set-model --access public"
-  },
-  "allowScripts": {
-    "@google/genai@1.52.0": false,
-    "protobufjs@7.6.5": false
   }
 }
