@@ -14,6 +14,9 @@
 
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 
+import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
+
 export interface SessionInterval {
     id: string;
     startedAt: number;
@@ -188,6 +191,50 @@ export function formatRuntimeDuration(ms: number): string {
     return parts.filter((part): part is string => part !== undefined).join(" ");
 }
 
+const DEFAULT_DONE_SOUND = "/usr/share/sounds/sound-icons/electric-piano-3.wav";
+
+/**
+ * Sound file for the Done chime. `PI_DONE_SOUND` overrides the default;
+ * unset means the default, empty/`0`/`off`/`no`/`false` mutes.
+ */
+function resolveDoneSound(): string | undefined {
+    const raw = process.env.PI_DONE_SOUND;
+    if (raw === undefined) return DEFAULT_DONE_SOUND;
+    const trimmed = raw.trim();
+    if (trimmed === "" || ["0", "off", "no", "false"].includes(trimmed.toLowerCase())) return undefined;
+    return trimmed;
+}
+
+/**
+ * Pi may run sandboxed with an XDG_RUNTIME_DIR that does not reach the
+ * desktop sound server. Prefer the real user runtime dir when its PipeWire
+ * socket exists; otherwise keep the inherited environment.
+ */
+function resolveAudioRuntimeDir(): string | undefined {
+    const uid = typeof process.getuid === "function" ? process.getuid() : undefined;
+    if (uid !== undefined && existsSync(`/run/user/${uid}/pipewire-0`)) return `/run/user/${uid}`;
+    return process.env.XDG_RUNTIME_DIR;
+}
+
+/** Fire-and-forget Done chime. Never throws; all failures are silent. */
+function playDoneSound(): void {
+    try {
+        const file = resolveDoneSound();
+        if (!file || !existsSync(file)) return;
+        const runtimeDir = resolveAudioRuntimeDir();
+        const env = runtimeDir ? { ...process.env, XDG_RUNTIME_DIR: runtimeDir } : { ...process.env };
+        const child = spawn("pw-play", [file], { env, stdio: "ignore", detached: true });
+        child.on("error", () => {
+            try {
+                const fallback = spawn("aplay", [file], { env, stdio: "ignore", detached: true });
+                fallback.on("error", () => { /* silent */ });
+                fallback.unref();
+            } catch { /* silent */ }
+        });
+        child.unref();
+    } catch { /* silent */ }
+}
+
 export default function (pi: ExtensionAPI) {
     const taskTiming = createTaskTimingState();
 
@@ -235,6 +282,7 @@ export default function (pi: ExtensionAPI) {
             ? ` · active ${formatDuration(timing.activeMs)} · waiting ${formatDuration(timing.waitingForUserMs)}`
             : "";
         ctx.ui.notify(`Done at ${formatTime(endTime)} · ${timing.waitingForUserMs > 0 ? `total ${total}` : total}${detail}`, "info");
+        playDoneSound();
     });
 
     pi.on("session_start", (_event, ctx) => {
