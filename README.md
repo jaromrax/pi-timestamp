@@ -1,4 +1,4 @@
-# pi-extensions
+# pi-extensions - a fork for the pi-timestamp
 
 [![CI](https://github.com/hknet/pi-extensions/actions/workflows/ci.yml/badge.svg)](https://github.com/hknet/pi-extensions/actions/workflows/ci.yml)
 
